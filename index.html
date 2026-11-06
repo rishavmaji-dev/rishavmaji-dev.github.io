@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Rishav Maji</title>
+<meta name="description" content="Rishav Maji. I build things that solve problems I actually have.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F7F8;
+    --surface: #E8EDF1;
+    --ink: #13243A;
+    --muted: #4A5B6E;
+    --accent: #2B5C8F;
+    --line: #C9D3DC;
+    --todo-bg: #FFF1B8;
+    --todo-ink: #4F3B00;
+    --todo-edge: #C79A00;
+    --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0E1826;
+      --surface: #16243A;
+      --ink: #E6ECF2;
+      --muted: #9FB0C2;
+      --accent: #8DB8E6;
+      --line: #2A3A52;
+      --todo-bg: #3A3110;
+      --todo-ink: #F5DE85;
+      --todo-edge: #B8920F;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .skip {
+    position: absolute; left: 1rem; top: -3rem;
+    background: var(--ink); color: var(--bg); padding: 0.5rem 0.75rem;
+  }
+  .skip:focus { top: 1rem; }
+
+  .wrap { max-width: 70rem; margin: 0 auto; padding: 0 1rem; }
+  @media (min-width: 40rem) { .wrap { padding: 0 2rem; } }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 4.5rem 0 4rem; }
+  @media (min-width: 52rem) { .hero { padding: 8rem 0 6rem; } }
+  .hero h1, .hero .line {
+    font-size: clamp(2.25rem, 1.4rem + 4.4vw, 4.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin: 0;
+    max-width: 17ch;
+  }
+  .hero h1 { font-weight: 800; }
+  .hero .line { font-weight: 400; color: var(--muted); }
+  .hero-links {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem;
+    margin: 2.25rem 0 0; padding: 0; list-style: none;
+    font-size: 1.125rem; font-weight: 500;
+  }
+
+  /* ---------- Sections ---------- */
+  .section {
+    position: relative;
+    border-top: 1px solid var(--line);
+    padding: 3rem 0 3.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  /* centre mark on the baseline */
+  .section::before {
+    content: "";
+    position: absolute; top: 0; left: 50%;
+    width: 1px; height: 0.75rem;
+    background: var(--line);
+  }
+  @media (min-width: 52rem) {
+    .section {
+      grid-template-columns: 11rem minmax(0, 1fr);
+      column-gap: 3rem;
+      padding: 4.5rem 0 5rem;
+    }
+  }
+  .section > h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0;
+    line-height: 1.5;
+  }
+  @media (min-width: 52rem) {
+    .section > h2 { padding-top: 0.45rem; }
+  }
+  .body { min-width: 0; }
+  .prose { max-width: 38rem; }
+  .prose p { margin: 0 0 1rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  h3 {
+    font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+  }
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 2.5rem 0 0.5rem;
+    line-height: 1.3;
+  }
+  .lede {
+    font-size: 1.25rem;
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0 0 1.25rem;
+    max-width: 34rem;
+  }
+  .repo { font-weight: 600; }
+
+  /* ---------- Figure ---------- */
+  figure { margin: 2.5rem 0 0; }
+  .shot { display: block; border-radius: 6px; }
+  figure img {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--muted);
+    max-width: 38rem;
+  }
+
+  ul.plain { margin: 0; padding-left: 1.15rem; }
+  ul.plain li { margin: 0 0 0.4rem; }
+  ul.plain li::marker { color: var(--muted); }
+
+  .status {
+    margin: 1.25rem 0 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 38rem;
+  }
+  .status div {
+    border-left: 2px solid var(--line);
+    padding-left: 1rem;
+  }
+  .status dt { font-weight: 600; }
+  .status dd { margin: 0; }
+
+  /* ---------- Fact rows (cancer research + about) ---------- */
+  .rows { margin: 0; max-width: 44rem; }
+  .rows > div {
+    display: grid;
+    gap: 0.15rem 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .rows > div:first-child { border-top: 0; padding-top: 0; }
+  @media (min-width: 40rem) {
+    .rows > div { grid-template-columns: 9.5rem minmax(0, 1fr); }
+  }
+  .rows dt { font-weight: 600; }
+  .rows dd { margin: 0; }
+  .prose + .rows { margin-top: 2rem; }
+
+  /* ---------- TODO markers: remove before submitting ---------- */
+  .todo {
+    display: block;
+    margin-top: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--todo-bg);
+    color: var(--todo-ink);
+    border: 1px dashed var(--todo-edge);
+    border-radius: 4px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.section { padding-bottom: 4rem; }
+  .contact { font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem); font-weight: 600; margin: 0; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Rishav Maji</h1>
+    <p class="line">I build things that solve problems I actually have.</p>
+    <ul class="hero-links">
+      <li><a href="https://github.com/ShowingSleet544">GitHub</a></li>
+      <li><a href="mailto:rishavmaji123@gmail.com">rishavmaji123@gmail.com</a></li>
+    </ul>
+  </header>
+
+  <main id="main">
+    <section class="section" aria-labelledby="project-label">
+      <h2 id="project-label">Featured project</h2>
+      <div class="body">
+        <h3>AI Tennis Coach</h3>
+        <p class="lede">One phone video in, frame-by-frame technique fixes out. Built for players who can't afford private lessons.</p>
+        <a class="repo" href="https://github.com/ShowingSleet544/ai-tennis-coach">See the code on GitHub</a>
+
+        <figure>
+          <a class="shot" href="tennisdemo.jpg" aria-label="Open the screenshot full size"><img src="tennisdemo.jpg" width="1277" height="656" loading="lazy" decoding="async"
+               alt="The app's side-by-side view at contact. Swing #4 on the left and the player's best forehand on the right, each with joint tracking drawn over the body, next to a table comparing elbow angle, knee bend, shoulder rotation, hip rotation, contact point and hip lead against a reference and a guideline range."></a>
+          <figcaption>
+            Side-by-side at contact: one forehand next to the player's best, with the measurements for each.
+            <!-- TODO: Confirm whose clip this is. If it is a teammate's, replace the caption above with exactly:
+                 "Teammate's clip, used with permission" (no name). Then delete the span below. -->
+            <span class="todo">TODO: Whose swing is this? If it's a teammate's, the caption must read "Teammate's clip, used with permission".</span>
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <h4>Why I started</h4>
+          <p>I wanted tailored feedback from something actually worth listening to, anytime and anywhere, without needing a coach or scheduling lessons. Between soccer, school and club tennis, hard classes, and family, I don't have time to book sessions. But I still want to get better every time I play.</p>
+
+          <h4>What I built</h4>
+          <ul class="plain">
+            <li>Finds every swing in the video.</li>
+            <li>Tracks joints with MediaPipe.</li>
+            <li>Measures elbow, knees, rotation, and contact point at the moment of contact.</li>
+            <li>Gives three specific fixes, each citing the measured number and the frame it came from.</li>
+            <li>Shows each swing side by side with your best one.</li>
+          </ul>
+
+          <h4>Where it is</h4>
+          <p>I built v1 in two days and tested it on my own clips and on two teammates' clips from this week's regionals.</p>
+        </div>
+        <dl class="status">
+          <div>
+            <dt>Known limitation</dt>
+            <dd>Walking between points can register as a swing.</dd>
+          </div>
+          <div>
+            <dt>Next</dt>
+            <dd>Fix that, then get it to my whole team.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cancer-label">
+      <h2 id="cancer-label">Cancer research</h2>
+      <div class="body">
+        <div class="prose">
+          <p>Two of my aunts have died of cancer, one of them very recently, and another is still in treatment. This expanded my existing interest in biology and pushed me to explore related fields.</p>
+          <!-- TODO: Confirm this sentence matches what you meant (two aunts passed + one in treatment, or one passed + one in treatment). -->
+          <span class="todo">TODO: Check the sentence above. Your notes could mean two aunts passed and a third is in treatment, or one passed and one is in treatment.</span>
+        </div>
+        <dl class="rows">
+          <div>
+            <dt>UCI COSMOS</dt>
+            <dd>Studied at COSMOS at UC Irvine, a selective summer STEM program: tissue and tumor biology, and math and computational modeling.</dd>
+          </div>
+          <div>
+            <dt>Cancer prediction</dt>
+            <dd>
+              Building models (XGBoost and neural networks) that predict cancer from biomarker data. I started with pancreatic cancer using a published urinary-biomarker dataset, and I'm now expanding to other cancer types.
+              <!-- TODO (optional): add a link to the code and a citation for the dataset. -->
+              <span class="todo">TODO (optional): link to the code and cite the dataset, if you want them public.</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="about-label">
+      <h2 id="about-label">About me</h2>
+      <div class="body">
+        <dl class="rows">
+          <div>
+            <dt>Tennis</dt>
+            <dd>Boys varsity captain. All-League First Team in 11th grade, Second Team in 10th.</dd>
+          </div>
+          <div>
+            <dt>Soccer</dt>
+            <dd>NorCal State Cup champion with my club team (U16 Boys, top State division, 2025).</dd>
+          </div>
+          <div>
+            <dt>Debate</dt>
+            <dd>2nd speaker of 153 at the UC Berkeley Cal Invitational (2025).</dd>
+          </div>
+          <div>
+            <dt>Geography</dt>
+            <dd>9th (2024) and 12th (2025) at the U.S. Geography Championships.</dd>
+          </div>
+          <div>
+            <dt>Science</dt>
+            <dd>12th place at the National Science Bee in 9th grade.</dd>
+          </div>
+          <div>
+            <dt>Aquascaping</dt>
+            <dd>Self-taught. I run three tanks, including a shrimp-breeding tank.</dd>
+          </div>
+          <div>
+            <dt>Building</dt>
+            <dd>Grew up soldering, building PCs, and flying drones with my dad and brother.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section" aria-labelledby="contact-label">
+    <h2 id="contact-label">Contact</h2>
+    <div class="body">
+      <p class="contact"><a href="mailto:rishavmaji123@gmail.com">rishavmaji123@gmail.com</a></p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
