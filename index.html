@@ -17,9 +17,6 @@
     --muted: #4A5B6E;
     --accent: #2B5C8F;
     --line: #C9D3DC;
-    --todo-bg: #FFF1B8;
-    --todo-ink: #4F3B00;
-    --todo-edge: #C79A00;
     --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
@@ -30,9 +27,6 @@
       --muted: #9FB0C2;
       --accent: #8DB8E6;
       --line: #2A3A52;
-      --todo-bg: #3A3110;
-      --todo-ink: #F5DE85;
-      --todo-edge: #B8920F;
     }
   }
 
@@ -190,18 +184,6 @@
   .rows dd { margin: 0; }
   .prose + .rows { margin-top: 2rem; }
 
-  /* ---------- TODO markers: remove before submitting ---------- */
-  .todo {
-    display: block;
-    margin-top: 0.6rem;
-    padding: 0.5rem 0.75rem;
-    background: var(--todo-bg);
-    color: var(--todo-ink);
-    border: 1px dashed var(--todo-edge);
-    border-radius: 4px;
-    font-size: 0.9375rem;
-    font-weight: 500;
-  }
 
   /* ---------- Footer ---------- */
   footer.section { padding-bottom: 4rem; }
@@ -233,11 +215,7 @@
           <a class="shot" href="tennisdemo.jpg" aria-label="Open the screenshot full size"><img src="tennisdemo.jpg" width="1277" height="656" loading="lazy" decoding="async"
                alt="The app's side-by-side view at contact. Swing #4 on the left and the player's best forehand on the right, each with joint tracking drawn over the body, next to a table comparing elbow angle, knee bend, shoulder rotation, hip rotation, contact point and hip lead against a reference and a guideline range."></a>
           <figcaption>
-            Side-by-side at contact: one forehand next to the player's best, with the measurements for each.
-            <!-- TODO: Confirm whose clip this is. If it is a teammate's, replace the caption above with exactly:
-                 "Teammate's clip, used with permission" (no name). Then delete the span below. -->
-            <span class="todo">TODO: Whose swing is this? If it's a teammate's, the caption must read "Teammate's clip, used with permission".</span>
-          </figcaption>
+A player I coach on the girls' team, used with permission. Face blurred for privacy.</figcaption>
         </figure>
 
         <div class="prose">
@@ -254,7 +232,7 @@
           </ul>
 
           <h4>Where it is</h4>
-          <p>I built v1 in two days and tested it on my own clips and on two teammates' clips from this week's regionals.</p>
+          <p>I built v1 in two days. Tested on my own swings and on clips from a player I coach on my school's girls' tennis team, used with her permission.</p>
         </div>
         <dl class="status">
           <div>
@@ -263,7 +241,7 @@
           </div>
           <div>
             <dt>Next</dt>
-            <dd>Fix that, then get it to my whole team.</dd>
+            <dd>Fix that, then get it to the girls’ team I coach and my own team.</dd>
           </div>
         </dl>
       </div>
@@ -273,9 +251,7 @@
       <h2 id="cancer-label">Cancer research</h2>
       <div class="body">
         <div class="prose">
-          <p>Two of my aunts have died of cancer, one of them very recently, and another is still in treatment. This expanded my existing interest in biology and pushed me to explore related fields.</p>
-          <!-- TODO: Confirm this sentence matches what you meant (two aunts passed + one in treatment, or one passed + one in treatment). -->
-          <span class="todo">TODO: Check the sentence above. Your notes could mean two aunts passed and a third is in treatment, or one passed and one is in treatment.</span>
+          <p>Three of my aunts have been diagnosed with cancer. Two have passed away, one in 2024, and another has been fighting stage 3 cancer since 2025. That turned my interest in biology into something personal and pushed me to explore how data and computing can help.</p>
         </div>
         <dl class="rows">
           <div>
@@ -286,8 +262,6 @@
             <dt>Cancer prediction</dt>
             <dd>
               Building models (XGBoost and neural networks) that predict cancer from biomarker data. I started with pancreatic cancer using a published urinary-biomarker dataset, and I'm now expanding to other cancer types.
-              <!-- TODO (optional): add a link to the code and a citation for the dataset. -->
-              <span class="todo">TODO (optional): link to the code and cite the dataset, if you want them public.</span>
             </dd>
           </div>
         </dl>
@@ -301,6 +275,10 @@
           <div>
             <dt>Tennis</dt>
             <dd>Boys varsity captain. All-League First Team in 11th grade, Second Team in 10th.</dd>
+          </div>
+          <div>
+            <dt>Coaching</dt>
+            <dd>Coach for my school's girls' tennis team.</dd>
           </div>
           <div>
             <dt>Soccer</dt>
